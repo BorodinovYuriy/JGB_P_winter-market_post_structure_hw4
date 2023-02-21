@@ -13,7 +13,6 @@ public class OrderConverter {
     private final OrderItemConverter orderItemConverter;
 
     public OrderDto entityToDto(Order order) {
-        // TODO: 14.02.2023 встроить в OrderDto
         return OrderDto.builder()
                 .id(order.getId())
                 .address(order.getAddress())
@@ -23,13 +22,5 @@ public class OrderConverter {
                 .items(order.getItems().stream().map(orderItemConverter::entityToDto).collect(Collectors.toList()))
                 .build();
 
-
-//        orderDto.setId(order.getId());
-//        orderDto.setAddress(order.getAddress());
-//        orderDto.setPhone(order.getPhone());
-//        orderDto.setTotalPrice(order.getTotalPrice());
-//        orderDto.setUsername(order.getUsername());
-//        orderDto.setItems(order.getItems().stream().map(orderItemConverter::entityToDto).collect(Collectors.toList()));
-//        return orderDto;
     }
 }
